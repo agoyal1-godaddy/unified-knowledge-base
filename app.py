@@ -47,7 +47,6 @@ st.markdown("""
 <style>
 /* Make Select/Deselect All label green, bold, and larger */
 div[data-testid="stSidebar"] label[for="select_all_knowledge_sources"] {
-    background-color: #ffffff;
     color: #24b47e !important;
     font-weight: 800 !important;
     font-size: 1.11em !important;
@@ -59,21 +58,6 @@ div[data-testid="stSidebar"] label[for="select_all_knowledge_sources"] {
     box-shadow: 0 2px 7px -6px #24b47e44;
     letter-spacing: 0.01em;
     display: inline-block;
-}
-            
-[data-testid="stSidebar"] [data-testid="stMarkdown"] {
-    background-color: transparent !important;
-}
-
-/* Remove default sidebar gradient */
-section[data-testid="stSidebar"]::before {
-    background-image: none !important;
-    background-color: #ffffff !important;
-}
-
-/* Clean up sidebar borders */
-.css-1d391kg {
-    background-color: #ffffff !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -226,7 +210,7 @@ with st.sidebar:
     )
 
     # Source keys
-    all_sources_keys = ["source_confluence", "source_jira", "source_github", "source_sharepoint"]
+    all_sources_keys = ["source_jira", "source_confluence", "source_github", "source_sharepoint"]
 
     # --- Knowledge Sources section disabled if ServiceNow checked ---
     knowledge_disabled = srvc_now
@@ -298,9 +282,9 @@ with st.sidebar:
     if srvc_now:
         sources.append("ServiceNow")
     else:
-        if jira:
-            sources.append("Confluence")
         if conf:
+            sources.append("Confluence")
+        if jira:
             sources.append("Jira")
         if gh:
             sources.append("GitHub")
