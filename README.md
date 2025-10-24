@@ -1,4 +1,4 @@
-# Unified Knowledge Search POC
+# Unified Knowledge Base
 
 A minimal Streamlit app to search across Confluence Cloud, SharePoint, ServiceNow, Jira, and GitHub using keywords via their respective APIs.
 
